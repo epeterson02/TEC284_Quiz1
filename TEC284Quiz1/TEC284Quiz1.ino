@@ -1,7 +1,7 @@
 // Pins for LED
-const int redPin = 9;
+const int redPin = 11;
 const int greenPin = 10;
-const int bluePin = 11;
+const int bluePin = 9;
 
 // Pins for buttons
 const int redButton = 2;
@@ -25,7 +25,7 @@ void setup() {
     pinMode(greenPin, OUTPUT);
     pinMode(bluePin, OUTPUT);
 
-    pinMode(redButton, INPUT_PULLUP); // Pullup resistor to avoid noise
+    pinMode(redButton, INPUT_PULLUP); //Pullup resistor to avoid noise
     pinMode(greenButton, INPUT_PULLUP);
     pinMode(blueButton, INPUT_PULLUP);
 
@@ -36,9 +36,10 @@ void loop() {
     redState = !digitalRead(redButton);
     greenState = !digitalRead(greenButton);
     blueState = !digitalRead(blueButton);
-     // Check button states and mix colors by multiplying button state (1 or 0) by 255
+
+
+    // Check button states and mix colors by multiplying button state (1 or 0) by 255
     if (redState || greenState || blueState) {
         setColor(redState * 127, greenState * 255, blueState * 255); //adjusted red color to improve mixing
     }
-
 }
