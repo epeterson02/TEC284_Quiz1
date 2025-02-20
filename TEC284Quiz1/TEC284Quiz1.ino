@@ -36,5 +36,9 @@ void loop() {
     redState = !digitalRead(redButton);
     greenState = !digitalRead(greenButton);
     blueState = !digitalRead(blueButton);
-   
+     // Check button states and mix colors by multiplying button state (1 or 0) by 255
+    if (redState || greenState || blueState) {
+        setColor(redState * 127, greenState * 255, blueState * 255); //adjusted red color to improve mixing
+    }
+
 }
